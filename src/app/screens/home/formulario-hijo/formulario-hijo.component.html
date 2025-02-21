@@ -1,0 +1,28 @@
+<div [formGroup]="formGroup()">
+  <app-custom-input
+    [control]="formGroup().controls.nombre"
+    formControlName="nombre"
+    [placeholder]="'Nombre'"
+    [label]="'Nombre'"
+    [type]="'text'"
+  />
+  <app-custom-input
+    [control]="formGroup().controls.apellidos"
+    formControlName="apellidos"
+    [placeholder]="'Apellidos'"
+    [label]="'Apellidos'"
+    [type]="'text'"
+  />
+  <app-custom-input
+    [control]="formGroup().controls.tieneIntolerancias"
+    formControlName="tieneIntolerancias"
+    [label]="'¿Tiene algun tipo de intolerancia alimentaria?'"
+    [type]="'checkbox'"
+  />
+  <app-custom-input
+    [control]="formGroup().controls.infoIntolerancias"
+    formControlName="infoIntolerancias"
+    [label]="'Añade todas las intolerancias que por desgracia padezcas'"
+    [type]="'textarea'"
+  />
+</div>

@@ -1,0 +1,87 @@
+<div class="container">
+  <mat-card class="tarjeta-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="tarjeta-header-image"></div>
+      <mat-card-title>Sobre nosotros</mat-card-title>
+      <mat-card-subtitle>Nuestra historia</mat-card-subtitle>
+    </mat-card-header>
+    <div class="card-image-container">
+      <img
+        mat-card-image
+        src="/assets/newyork.jpg"
+        alt="Foto del lugar de la boda"
+      />
+    </div>
+    <mat-card-content>
+      <p>Breve descripcion de nuestra historia juntos.</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [routerLink]="['/quien-somos']">
+        Mas Informacion
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="tarjeta-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="tarjeta-header-image"></div>
+      <mat-card-title>Nuestra boda</mat-card-title>
+      <mat-card-subtitle>¿Dónde la realizamos?</mat-card-subtitle>
+    </mat-card-header>
+    <div class="card-image-container">
+      <img
+        mat-card-image
+        src="/assets/boda.jpeg"
+        alt="Foto del lugar de la boda"
+      />
+    </div>
+    <mat-card-content>
+      <p>Breve descripcion del lugar en el que sera la boda.</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [routerLink]="['/boda']">Mas Informacion</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="tarjeta-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="tarjeta-header-image"></div>
+      <mat-card-title>Preboda</mat-card-title>
+      <mat-card-subtitle>Fieston del dia antes</mat-card-subtitle>
+    </mat-card-header>
+    <div class="card-image-container">
+      <img
+        mat-card-image
+        src="/assets/preboda.jpg"
+        alt="Foto del lugar de la boda"
+      />
+    </div>
+    <mat-card-content>
+      <p>Breve descripcion del lugar de la preboda.</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [routerLink]="['/preboda']">Mas Informacion</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="tarjeta-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="tarjeta-header-image"></div>
+      <mat-card-title>Transporte</mat-card-title>
+      <mat-card-subtitle>¿Cómo nos desplazaremos?</mat-card-subtitle>
+    </mat-card-header>
+    <div class="card-image-container">
+      <img
+        mat-card-image
+        src="/assets/bus.jpeg"
+        alt="Foto del lugar de la boda"
+      />
+    </div>
+    <mat-card-content>
+      <p>Breve descripcion del transporte para ir a la boda.</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [routerLink]="['/transporte']">Mas Informacion</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

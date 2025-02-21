@@ -1,0 +1,30 @@
+<section class="formulario-intro">
+  <div>
+    Necesitamos que nos deis informacion muy relevante para nosotros, que nos
+    auyudará a poder organizar todo un poquito mejor para que salga genial!!
+  </div>
+</section>
+
+<section class="formulario-container">
+  @for (
+    formGroup of formulario.controls.personas.controls;
+    track formGroup.controls.id.value
+  ) {
+    <app-formulario-hijo [formGroup]="formGroup" />
+    <button (click)="eliminarPersona($index)">Eliminar</button>
+  }
+</section>
+
+<section class="formulario-intro">
+  <button (click)="agragarPersona()">Añade acopmañante</button>
+  <button (click)="agragarHijo()">Añade hijo</button>
+  <button (click)="agragarFake()">Añade extraterrestre</button>
+  <button (click)="agragarFake()">Añade dinosaurio</button>
+  <button (click)="agragarFake()">Añade minion</button>
+  <div>
+    Si vas a venir con pareja, hijos... extraterrestres, minions o dinosaurios!!
+    añade añadeeeee añadelo!
+  </div>
+
+  <div>Total personas añadidas: {{ totalPersonas() }}</div>
+</section>

@@ -1,0 +1,42 @@
+<header>
+  <mat-toolbar>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/']">
+        <mat-icon>home</mat-icon>
+        <span>Inicio</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/quien-somos']">
+        <mat-icon>group</mat-icon>
+        <span>Sobre nosotros</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/preboda']">
+        <mat-icon>family_restroom</mat-icon>
+        <span>Preboda</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/boda']">
+        <mat-icon>festival</mat-icon>
+        <span>Boda</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/transporte']">
+        <mat-icon>directions_car_filled</mat-icon>
+        <span>Transporte</span>
+      </button>
+    </mat-menu>
+    <span [routerLink]="['/']">Mariajo & Óscar</span>
+    <span class="header-spacer"></span>
+    <button
+      mat-icon-button
+      (click)="descargarPDF()"
+      aria-label="descarga invitacion"
+    >
+      <mat-icon>download</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>

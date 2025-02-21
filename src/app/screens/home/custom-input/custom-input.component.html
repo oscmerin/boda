@@ -1,0 +1,17 @@
+@let localControl = control();
+
+<label>{{ label }}</label>
+<input
+  [type]="type"
+  [formControl]="localControl"
+  [placeholder]="placeholder"
+  (blur)="onTouched()"
+/>
+
+@if (localControl.invalid && (localControl.touched || localControl.dirty)) {
+  <div class="error">
+    @if (localControl.errors?.['required']) {
+      <span>Este campo es obligatorio</span>
+    }
+  </div>
+}
