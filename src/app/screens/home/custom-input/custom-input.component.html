@@ -1,10 +1,10 @@
 @let localControl = control();
 
-<label>{{ label }}</label>
+<label>{{ label() }}</label>
 <input
-  [type]="type"
+  [type]="type()"
   [formControl]="localControl"
-  [placeholder]="placeholder"
+  [placeholder]="placeholder()"
   (blur)="onTouched()"
 />
 

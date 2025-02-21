@@ -21,9 +21,9 @@ import {
 })
 export class CustomInputComponent implements ControlValueAccessor {
   control = input.required<FormControl<any>>();
-  @Input() placeholder?: string = '';
-  @Input() label?: string = '';
-  @Input() type?: string = 'text';
+  placeholder = input<string>();
+  label  = input.required<string>();
+  type  = input.required<string>();
 
   constructor() {
     effect(() => {
