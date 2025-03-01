@@ -1,29 +1,50 @@
 <div [formGroup]="formGroup()">
-  <app-custom-input
-    [control]="formGroup().controls.nombre"
-    formControlName="nombre"
-    [placeholder]="'Nombre'"
-    [label]="'Nombre'"
-    [type]="'text'"
-  />
-  <app-custom-input
-    [control]="formGroup().controls.apellidos"
-    formControlName="apellidos"
-    [placeholder]="'Apellidos'"
-    [label]="'Apellidos'"
-    [type]="'text'"
-  />
-  <app-custom-input
-    [control]="formGroup().controls.tieneIntolerancias"
-    formControlName="tieneIntolerancias"
-    [label]="'¿Tiene algun tipo de intolerancia alimentaria?'"
-    [type]="'checkbox'"
-  />
-  <app-custom-input
-    [control]="formGroup().controls.infoIntolerancias"
-    formControlName="infoIntolerancias"
-    [label]="'Añade todas las intolerancias que por desgracia padezcas'"
-    [type]="'textarea'"
-    [placeholder]="'Añade intolerancias'"
-  />
+  <mat-form-field class="element-form">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" />
+  </mat-form-field>
+  <mat-form-field class="element-form">
+    <mat-label>Apellidos</mat-label>
+    <input matInput formControlName="apellidos" />
+  </mat-form-field>
+  <div class="element-form">
+    ¿Quiero menu infantil?
+  </div>
+  <mat-radio-group formControlName="menuInfantil" class="radio">
+    <mat-radio-button [value]=true>SI</mat-radio-button>
+    <mat-radio-button [value]=false>NO</mat-radio-button>
+  </mat-radio-group>
+  <div class="element-form">
+    ¿Tiene algun tipo de intolerancia alimentaria?
+  </div>
+  <mat-radio-group formControlName="tieneIntolerancias" class="radio">
+    <mat-radio-button [value]=true>SI</mat-radio-button>
+    <mat-radio-button [value]=false>NO</mat-radio-button>
+  </mat-radio-group>
+  
+  @if (formGroup().controls.tieneIntolerancias.value === true) {
+    <mat-form-field class="element-form">
+      <mat-label>Añade todas las intolerancias que por desgracia padezcas</mat-label>
+      <textarea matInput formControlName="infoIntolerancias"></textarea>
+    </mat-form-field>
+  } @else {
+    {{formGroup().controls.infoIntolerancias.reset()}}
+    <p> No tiene intolerancias </p>
+  }
+
+  <div class="element-form">
+    ¿Vas a venir a la boda en autobus desde Palencia?
+  </div>
+  <mat-radio-group formControlName="usaAutobus" class="radio">
+    <mat-radio-button [value]=true>SI</mat-radio-button>
+    <mat-radio-button [value]=false>NO</mat-radio-button>
+  </mat-radio-group>
+
+  <div class="element-form">
+    ¿Vas a venir a la PREBODA?
+  </div>
+  <mat-radio-group formControlName="asistentePreboda" class="radio">
+    <mat-radio-button [value]=true>SI</mat-radio-button>
+    <mat-radio-button [value]=false>NO</mat-radio-button>
+  </mat-radio-group>
 </div>

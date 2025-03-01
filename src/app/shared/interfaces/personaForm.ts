@@ -9,4 +9,5 @@ export interface PersonaForm {
   infoIntolerancias: FormControl<string>;
   asistentePreboda: FormControl<boolean>;
   asistenteBoda: FormControl<boolean>;
+  menuInfantil: FormControl<boolean>;
 }

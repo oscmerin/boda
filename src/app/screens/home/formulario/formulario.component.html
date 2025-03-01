@@ -3,28 +3,37 @@
     Necesitamos que nos deis informacion muy relevante para nosotros, que nos
     auyudará a poder organizar todo un poquito mejor para que salga genial!!
   </div>
+  <div>
+    Por favor, rellena el siguiente formulario con la información de las
+    personas que van a venir a la boda.
+  </div>
+  <p>Total personas añadidas: {{ totalPersonas() }}</p>
 </section>
 
-<section class="formulario-container">
+<section>
   @for (
     formGroup of formulario.controls.personas.controls;
     track formGroup.controls.id.value
   ) {
-    <app-formulario-hijo [formGroup]="formGroup" />
-    <button (click)="eliminarPersona($index)">Eliminar</button>
+    <div class="formulario-container">Persona {{$index +1}}</div>
+    <div class="formulario-container">
+      <app-formulario-hijo class="preguntas" [formGroup]="formGroup" />
+      <button  mat-fab (click)="eliminarPersona($index)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+
+    <mat-divider></mat-divider>
   }
 </section>
 
-<section class="formulario-intro">
-  <button (click)="agragarPersona()">Añade acopmañante</button>
-  <button (click)="agragarHijo()">Añade hijo</button>
-  <button (click)="agragarFake()">Añade extraterrestre</button>
-  <button (click)="agragarFake()">Añade dinosaurio</button>
-  <button (click)="agragarFake()">Añade minion</button>
-  <div>
-    Si vas a venir con pareja, hijos... extraterrestres, minions o dinosaurios!!
-    añade añadeeeee añadelo!
-  </div>
-
-  <div>Total personas añadidas: {{ totalPersonas() }}</div>
+<section class="formulario-buttons">
+  <p>
+    Si vas a venir con pareja, hijos... añade! Cuantos más seamos mejor!!
+  </p>
+  <button mat-flat-button (click)="agragarPersona()">Añade acopmañante o hijo</button>
+  <p>
+    ¿Has terminado de añadir gente? Si es asi, confirma.
+  </p>
+  <button mat-flat-button class="confirm-button"  (click)="confirmar()">Añade acopmañante o hijo</button>
 </section>

@@ -3,6 +3,7 @@ import {
   Component,
   computed,
   inject,
+  OnInit,
 } from '@angular/core';
 import {
   FormArray,
@@ -14,15 +15,18 @@ import {
 import { PersonaForm } from '@app/shared/interfaces/personaForm';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormularioHijoComponent } from '../formulario-hijo/formulario-hijo.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-formulario',
-  imports: [ReactiveFormsModule, FormularioHijoComponent],
+  imports: [MatButtonModule, MatDividerModule, MatIconModule, ReactiveFormsModule, FormularioHijoComponent],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormularioComponent {
+export class FormularioComponent implements OnInit {
   protected formBuilder = inject(NonNullableFormBuilder);
   public formulario: FormGroup<{
     personas: FormArray<FormGroup<PersonaForm>>;
@@ -32,6 +36,11 @@ export class FormularioComponent {
 
   get personas() {
     return this.formulario.controls.personas;
+  }
+
+  ngOnInit() {
+    // Agregamos una persona por defecto
+    this.agragarPersona();
   }
 
   // aqui con el toSignal transformamos de observable a una señal
@@ -55,6 +64,7 @@ export class FormularioComponent {
       infoIntolerancias: this.formBuilder.control(''),
       asistentePreboda: this.formBuilder.control(false, [Validators.required]),
       asistenteBoda: this.formBuilder.control(false, [Validators.required]),
+      menuInfantil: this.formBuilder.control(false, [Validators.required])
     });
 
     this.formulario.controls.personas.push(personaForm);
@@ -65,6 +75,7 @@ export class FormularioComponent {
     this.formulario.controls.personas.removeAt(index);
   }
 
-  public agragarHijo(): void {}
-  public agragarFake(): void {}
+  public confirmar(): void {
+    console.log('confirmar', this.formulario.value);
+  }
 }
